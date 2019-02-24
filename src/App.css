@@ -13,3 +13,8 @@
   display: inline-block;
   width: 85px;
 }
+
+.ant-layout-header > h1 {
+  color: #fff;
+  text-align: center;
+}
