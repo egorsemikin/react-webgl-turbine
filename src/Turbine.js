@@ -43,13 +43,22 @@ class Turbine extends Component {
     });
     this.startAutoRotation();
 
-    this.raycater = new THREE.Raycaster();
-    this.mousePos = { x: 0, y: 0 };
+    this.raycaster = new THREE.Raycaster();
+    this.normalVector = new THREE.Vector2();
     window.addEventListener('mousemove', event => {
       // calculate mouse position in normalized device coordinates
       // (-1 to +1) for both components
-      this.mousePos.x = (event.clientX / window.innerWidth) * 2 - 1;
-      this.mousePos.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      this.normalVector.x = ((event.clientX - 250) / this.props.width) * 2 - 1;
+      this.normalVector.y = -((event.clientY - 64) / this.props.height) * 2 + 1;
+
+      // update the picking ray with the camera and mouse position
+      this.raycaster.setFromCamera(this.normalVector, this.camera);
+
+      // calculate objects intersecting the picking ray
+      var intersects = this.raycaster.intersectObjects(this.scene.children, true);
+      for (var i = 0; i < intersects.length; i++) {
+        intersects[i].object.material.color.set(0xff0000);
+      }
     });
 
     this.createTank();
