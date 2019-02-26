@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Minimal demo page is included in sample directory.
 
-[Online demo](https://github.com/egorsemikin/react-webgl-turbine/build/index.html) is also available!
+[Online demo](https://egorsemikin.github.io/index.html) is also available!
 
 ## Installation
 
