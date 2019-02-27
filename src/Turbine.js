@@ -187,6 +187,8 @@ class Turbine extends Component {
           this.kernelAngle = (this.kernelAngle - 4) % 360;
           this.updateBlades(this.props);
           break;
+        default:
+          break;
       }
     }, 60);
   }
