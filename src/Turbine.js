@@ -252,6 +252,7 @@ class Turbine extends Component {
       xPos.add(offset);
       xLabel.position.copy(xPos).add(new THREE.Vector3(0, 10, 0));
       this.scene.add(xLabel);
+      // X-arrow
       var xArrow = new THREE.ArrowHelper(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, 0, 0), 20, 0xff0000, 10, 5);
       xArrow.position.copy(xPos);
       this.scene.add(xArrow);
