@@ -252,7 +252,6 @@ class Turbine extends Component {
       xPos.add(offset);
       xLabel.position.copy(xPos).add(new THREE.Vector3(0, 10, 0));
       this.scene.add(xLabel);
-      // X-arrow
       var xArrow = new THREE.ArrowHelper(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, 0, 0), 20, 0xff0000, 10, 5);
       xArrow.position.copy(xPos);
       this.scene.add(xArrow);
@@ -267,7 +266,6 @@ class Turbine extends Component {
       yLabel.position.copy(yPos).add(new THREE.Vector3(0, -10, 10));
       yLabel.rotation.set(-Math.PI, Math.PI / 2, 0);
       this.scene.add(yLabel);
-      // Y-arrow
       var yArrow = new THREE.ArrowHelper(new THREE.Vector3(0, -1, 0), new THREE.Vector3(0, 0, 0), 20, 0x00ff00, 10, 5);
       yArrow.position.copy(yPos);
       this.scene.add(yArrow);
