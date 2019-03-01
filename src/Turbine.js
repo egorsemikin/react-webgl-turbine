@@ -170,6 +170,7 @@ class Turbine extends Component {
     }
 
     if (!_.isEqual(nextProps, this.props)) {
+      this.updatePlane(nextProps);
       this.updateTank(nextProps);
       this.updateShaft(nextProps);
       this.updateDisk(nextProps);
@@ -290,9 +291,13 @@ class Turbine extends Component {
   }
 
   createPlane() {
-    var grid = new THREE.GridHelper(1000, 50);
-    grid.position.y = -(this.props.tankHeight / 2);
-    this.scene.add(grid);
+    this.grid = new THREE.GridHelper(1000, 50);
+    this.grid.position.y = -(this.props.tankHeight / 2);
+    this.scene.add(this.grid);
+  }
+
+  updatePlane(props) {
+    this.grid.position.y = -(props.tankHeight / 2);
   }
 
   createTankGeometry({ tankDiameter, tankHeight }) {
