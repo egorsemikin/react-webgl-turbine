@@ -162,6 +162,9 @@ class Turbine extends Component {
     if (nextProps.bladeCount !== this.props.bladeCount) {
       this.changeBladeCount(nextProps.bladeCount, this.props.bladeCount);
     }
+    if (nextProps.bladeInnerRadius !== this.props.bladeInnerRadius || nextProps.bladeOuterRadius !== this.props.bladeOuterRadius || nextProps.bladeWidth !== this.props.bladeWidth || nextProps.bladeHeight !== this.props.bladeHeight) {
+      this.changeBladeGeometry(nextProps.bladeInnerRadius, nextProps.bladeOuterRadius, nextProps.bladeWidth, nextProps.bladeHeight);
+    }
     if (nextProps.baffleCount !== this.props.baffleCount) {
       this.changeBaffleCount(nextProps.baffleCount, this.props.baffleCount);
     }
@@ -387,6 +390,13 @@ class Turbine extends Component {
         this.blades.push(mesh);
         this.scene.add(mesh);
       }
+    }
+  }
+
+  changeBladeGeometry(innerRadius: number, outerRadius: number, width: number, height: number) {
+    for (var i = 0; i < this.blades.length; i++) {
+      delete this.blades[i].geometry;
+      this.blades[i].geometry = new THREE.BoxGeometry(width, height, outerRadius - innerRadius);
     }
   }
 
